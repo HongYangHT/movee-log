@@ -1,0 +1,11 @@
+{
+  "name": "movee-log",
+  "version": "1.0.0",
+  "description": "> 前端日志记录",
+  "main": "index.js",
+  "scripts": {
+  },
+  "keywords": [],
+  "author": "samhong <m118969136460@163.com> (https://github.com/HongYangHT)",
+  "license": "MIT"
+}
