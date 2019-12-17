@@ -1,3 +1,12 @@
+## [1.0.3](https://github.com/HongYangHT/movee-log/compare/1.0.2...1.0.3) (2019-12-17)
+
+
+### Bug Fixes
+
+* 抛出Logger对象 ([ce538a6](https://github.com/HongYangHT/movee-log/commit/ce538a6803e26a2438da031da7091a2a65875362))
+
+
+
 ## 1.0.2 (2019-12-17)
 
 
