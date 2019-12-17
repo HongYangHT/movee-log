@@ -159,7 +159,16 @@ class Logger {
    * @param {string} responseData 请求失败后返回的参数
    * @param {string} stack 错误日志堆栈
    */
-  logger(logType = 'request', requestUrl, requestType, params, requestTime, url, responseData, stack) {
+  logger(
+    logType = 'request',
+    requestUrl,
+    requestType,
+    params,
+    requestTime,
+    url,
+    responseData,
+    stack
+  ) {
     let userInfo = this.fetchUserInfo()
     let uaInfo = this.fetchNavigation()
     let urlUri = this.uri

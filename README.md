@@ -34,11 +34,13 @@
 - 生成更新日志
 > npm install -g conventional-changelog-cli
 
-- 推荐工作流
-1. 提交修改的commit
-2. 修改版本号
-3. 执行build
-4. 自动生成change log
-5. 重新添加package.json 和 CHANGELOG.md
-6. 打tag
-7. push
+- 发布新版本推荐工作流
+  1. 执行eslint格式化代码 (npm run eslint)
+  2. 提交修改的commit (git add . / git cz)
+  3. 修改版本号 (npm run changeVersion)
+  4. 执行build (npm run build)
+  5. 自动生成change log (npm run changelog)
+  6. 重新添加package.json 和 CHANGELOG.md (git add . / git cz)
+  7. 打tag (git add -a tag -m 'xx')
+  8. push (git push origin tag)
+  9. 发布到npm
