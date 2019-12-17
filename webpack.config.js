@@ -3,7 +3,7 @@
  * @LastEditors: sam.hongyang
  * @Description: webpack 相关配置
  * @Date: 2019-12-11 17:14:42
- * @LastEditTime: 2019-12-17 18:02:02
+ * @LastEditTime: 2019-12-17 18:06:01
  */
 const pkg = require('./package.json')
 const webpack = require('webpack')
@@ -84,14 +84,14 @@ module.exports = smp.wrap({
   performance: {
     hints: false
   },
-  optimization: {
-    // 根据不同的策略来分割打包出来的bundle
-    splitChunks: {
-      // 同时分割同步和异步代码
-      chunks: 'all'
-    },
-    // 对于每个entry生成对应的runtime~${entrypoint.name}文件
-    runtimeChunk: true
-  },
+  // optimization: {
+  //   // 根据不同的策略来分割打包出来的bundle
+  //   splitChunks: {
+  //     // 同时分割同步和异步代码
+  //     chunks: 'all'
+  //   },
+  //   // 对于每个entry生成对应的runtime~${entrypoint.name}文件
+  //   runtimeChunk: true
+  // },
   plugins
 })
