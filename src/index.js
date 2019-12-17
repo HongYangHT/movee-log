@@ -3,7 +3,7 @@
  * @LastEditors: sam.hongyang
  * @Description: 发送请求日志
  * @Date: 2019-12-16 16:49:15
- * @LastEditTime: 2019-12-17 17:58:51
+ * @LastEditTime: 2019-12-17 18:17:43
  */
 class Logger {
   /**
@@ -122,28 +122,28 @@ class Logger {
         info = Object.assign(info, {
           token: uni.getStorageSync('token') || '',
           userId: uni.getStorageSync('userId') || '',
-          username: uni.getStorageSync('username') || ''
+          username: uni.getStorageSync('loginName') || ''
         })
         break
       case 'wx':
         info = Object.assign(info, {
           token: wx.getStorageSync('token') || '',
           userId: wx.getStorageSync('userId') || '',
-          username: wx.getStorageSync('username') || ''
+          username: wx.getStorageSync('loginName') || ''
         })
         break
       case 'web':
         info = Object.assign(info, {
           token: window.localStorage.getItem('token') || '',
           userId: window.localStorage.getItem('userId') || '',
-          username: window.localStorage.getItem('username') || ''
+          username: window.localStorage.getItem('loginName') || ''
         })
         break
       default:
         info = Object.assign(info, {
           token: window.localStorage.getItem('token') || '',
           userId: window.localStorage.getItem('userId') || '',
-          username: window.localStorage.getItem('username') || ''
+          username: window.localStorage.getItem('loginName') || ''
         })
         break
     }

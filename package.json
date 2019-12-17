@@ -1,6 +1,6 @@
 {
   "name": "movee-log",
-  "version": "1.0.6",
+  "version": "1.0.7",
   "description": "利用阿里云web-track记录前端日志，并支持微信小程序和web应用",
   "main": "dist/index.js",
   "scripts": {
