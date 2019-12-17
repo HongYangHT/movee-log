@@ -3,7 +3,7 @@
  * @LastEditors: sam.hongyang
  * @Description: webpack 相关配置
  * @Date: 2019-12-11 17:14:42
- * @LastEditTime: 2019-12-17 16:43:26
+ * @LastEditTime: 2019-12-17 18:02:02
  */
 const pkg = require('./package.json')
 const webpack = require('webpack')
@@ -50,8 +50,8 @@ module.exports = smp.wrap({
   output: {
     path: path.resolve(__dirname, 'dist'),
     libraryTarget: 'umd',
-    filename: '[name].[contenthash].js',
-    chunkFilename: '[name].[chunkhash].js',
+    filename: '[name].js',
+    chunkFilename: '[name].js',
     umdNamedDefine: true
   },
   // context是webpack编译时的基础目录，entry会相对此目录查找
