@@ -3,6 +3,9 @@
 
 ![npm](https://img.shields.io/npm/dt/movee-log) ![npm](https://img.shields.io/npm/v/movee-log) ![npm](https://img.shields.io/npm/l/movee-log) ![GitHub stars](https://img.shields.io/github/stars/HongYangHT/movee-log?style=social) ![GitHub forks](https://img.shields.io/github/forks/HongYangHT/movee-log?style=social)
 
+### 使用方法
+> 查看[使用方法](./USEAGE.md)
+
 ### PR && Commit (提交代码)
 - 使用 commitizen 来格式化 Git commit message
   - 安装 commitizen
@@ -27,3 +30,15 @@
 
 ### 更新日志
 > 查看更新[日志](./CHANGELOG.md)
+
+- 生成更新日志
+> npm install -g conventional-changelog-cli
+
+- 推荐工作流
+1. 提交修改的commit
+2. 修改版本号
+3. 执行build
+4. 自动生成change log
+5. 重新添加package.json 和 CHANGELOG.md
+6. 打tag
+7. push

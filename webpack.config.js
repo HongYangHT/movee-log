@@ -3,11 +3,14 @@
  * @LastEditors: sam.hongyang
  * @Description: webpack 相关配置
  * @Date: 2019-12-11 17:14:42
- * @LastEditTime: 2019-12-17 15:43:04
+ * @LastEditTime: 2019-12-17 16:43:26
  */
 const pkg = require('./package.json')
 const webpack = require('webpack')
 const path = require('path')
+const { CleanWebpackPlugin } = require('clean-webpack-plugin')
+const SpeedMeasurePlugin = require('speed-measure-webpack-plugin')
+const CompressionWebpackPlugin = require('compression-webpack-plugin')
 
 const banner = `
 ${pkg.name}
@@ -19,8 +22,27 @@ ${pkg.description}\n
 Released under the MIT License.
 hash: [hash]
 `
-const plugins = [new webpack.BannerPlugin(banner)]
-module.exports = {
+const plugins = [
+  new webpack.BannerPlugin(banner),
+  new CleanWebpackPlugin({
+    cleanOnceBeforeBuildPatterns: ['**/*'],
+    verbose: true,
+    dry: false
+  }),
+  new CompressionWebpackPlugin({
+    filename: '[path].gz[query]',
+    algorithm: 'gzip',
+    test: /\.js$|\.css$|\.html$|\.eot?.+$|\.ttf?.+$|\.woff?.+$|\.svg?.+$/,
+    // NOTE: 设置生成`gzip`文件大小 100K
+    threshold: 100 * 1024,
+    minRatio: 0.8,
+    cache: true
+  })
+]
+
+const smp = new SpeedMeasurePlugin()
+
+module.exports = smp.wrap({
   mode: 'production',
   entry: {
     index: './index.js'
@@ -72,4 +94,4 @@ module.exports = {
     runtimeChunk: true
   },
   plugins
-}
+})

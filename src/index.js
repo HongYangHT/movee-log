@@ -3,7 +3,7 @@
  * @LastEditors: sam.hongyang
  * @Description: 发送请求日志
  * @Date: 2019-12-16 16:49:15
- * @LastEditTime: 2019-12-17 16:12:28
+ * @LastEditTime: 2019-12-17 17:18:30
  */
 class Logger {
   /**
@@ -13,7 +13,7 @@ class Logger {
    * @param {string} logstore 项目日志存存的位置
    * @param {string} from 来源的项目
    */
-  constructor(project, host, logstore, accessId, accessKey, from, ua) {
+  constructor(project, host, logstore, accessId, accessKey, from, ua = 'web', openLog = true) {
     this.project = project
     this.host = host
     this.logstore = logstore
@@ -22,6 +22,7 @@ class Logger {
     this.accessId = accessId // NOTE: access id
     this.accessKey = accessKey // NOTE: access key
     this.uri = `https://${config.project}.${config.host}/logstores/${config.logstore}/track?APIVersion=0.6.0` // NOTE: 发送给阿里云的后台接口地址
+    this.openLog = openLog
   }
 
   padLeftZero(str) {
@@ -158,7 +159,7 @@ class Logger {
    * @param {string} responseData 请求失败后返回的参数
    * @param {string} stack 错误日志堆栈
    */
-  logger(logType = 'request', requestUrl, params, requestTime, url, responseData, stack) {
+  logger(logType = 'request', requestUrl, requestType, params, requestTime, url, responseData, stack) {
     let userInfo = this.fetchUserInfo()
     let uaInfo = this.fetchNavigation()
     let urlUri = this.uri
@@ -168,6 +169,7 @@ class Logger {
       params: JSON.stringify(params),
       url,
       requestUrl,
+      requestType,
       requestTime,
       responseData: JSON.stringify(responseData),
       stack: JSON.stringify(stack)
@@ -175,7 +177,7 @@ class Logger {
     this.request(urlUri, info)
   }
 
-  jsLogger() {
+  jsLogger(logType, url, stack, sourceUrl) {
     let userInfo = this.fetchUserInfo()
     let uaInfo = this.fetchNavigation()
     let urlUri = this.uri
@@ -195,6 +197,7 @@ class Logger {
    * @param {object} params 请求的参数
    */
   request(url, params) {
+    if (!this.openLog) return
     let urlUri = url
     let keys = Object.keys(params)
     let xhr = null
