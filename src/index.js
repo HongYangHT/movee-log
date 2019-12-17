@@ -3,7 +3,7 @@
  * @LastEditors: sam.hongyang
  * @Description: 发送请求日志
  * @Date: 2019-12-16 16:49:15
- * @LastEditTime: 2019-12-17 17:45:26
+ * @LastEditTime: 2019-12-17 17:58:51
  */
 class Logger {
   /**
@@ -21,7 +21,7 @@ class Logger {
     this.ua = ua // NOTE: uni:表示builx 编译的uni-app小程序 wx: 表示直接用微信小程序编写的小程序 web: 表示web应用（包含web和H5）
     this.accessId = accessId // NOTE: access id
     this.accessKey = accessKey // NOTE: access key
-    this.uri = `https://${config.project}.${config.host}/logstores/${config.logstore}/track?APIVersion=0.6.0` // NOTE: 发送给阿里云的后台接口地址
+    this.uri = `https://${project}.${host}/logstores/${logstore}/track?APIVersion=0.6.0` // NOTE: 发送给阿里云的后台接口地址
     this.openLog = openLog
   }
 
