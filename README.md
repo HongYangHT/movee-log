@@ -1,7 +1,7 @@
-### movee-log
+## movee-log
 > 利用阿里云web-track记录前端日志，并支持微信小程序和web应用
 
-![npm](https://img.shields.io/npm/dt/movee-log)![npm](https://img.shields.io/npm/v/movee-log)![npm](https://img.shields.io/npm/l/movee-log)![GitHub stars](https://img.shields.io/github/stars/HongYangHT/movee-log?style=social)![GitHub forks](https://img.shields.io/github/forks/HongYangHT/movee-log?style=social)
+![npm](https://img.shields.io/npm/dt/movee-log) ![npm](https://img.shields.io/npm/v/movee-log) ![npm](https://img.shields.io/npm/l/movee-log) ![GitHub stars](https://img.shields.io/github/stars/HongYangHT/movee-log?style=social) ![GitHub forks](https://img.shields.io/github/forks/HongYangHT/movee-log?style=social)
 
 ### PR && Commit (提交代码)
 - 使用 commitizen 来格式化 Git commit message
@@ -24,3 +24,6 @@
 
 - git 提交
   - 将 `git commit` 用 `git cz` 代替 
+
+### 更新日志
+> 查看更新[日志](./CHANGELOG.md)
