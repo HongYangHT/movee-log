@@ -3,7 +3,7 @@
  * @LastEditors: sam.hongyang
  * @Description: 发送请求日志
  * @Date: 2019-12-16 16:49:15
- * @LastEditTime: 2019-12-17 16:06:12
+ * @LastEditTime: 2019-12-17 16:12:28
  */
 class Logger {
   /**
@@ -216,6 +216,7 @@ class Logger {
             }
           })
         } catch (error) {
+          console.log(error)
           console.log(error)
         }
         break
