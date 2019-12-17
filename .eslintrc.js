@@ -3,12 +3,14 @@
  * @LastEditors: sam.hongyang
  * @Description: eslint 设置
  * @Date: 2019-12-17 14:37:38
- * @LastEditTime: 2019-12-17 15:33:23
+ * @LastEditTime: 2019-12-17 17:47:15
  */
 module.exports = {
   root: true,
   parserOptions: {
-    parser: 'babel-eslint'
+    parser: 'babel-eslint',
+    "sourceType": "module",
+    "allowImportExportEverywhere": true
   },
   env: {
     browser: true,

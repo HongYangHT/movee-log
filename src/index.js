@@ -3,7 +3,7 @@
  * @LastEditors: sam.hongyang
  * @Description: 发送请求日志
  * @Date: 2019-12-16 16:49:15
- * @LastEditTime: 2019-12-17 17:18:30
+ * @LastEditTime: 2019-12-17 17:45:26
  */
 class Logger {
   /**
@@ -289,3 +289,5 @@ class Logger {
     }
   }
 }
+
+export default Logger
