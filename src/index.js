@@ -3,7 +3,7 @@
  * @LastEditors: sam.hongyang
  * @Description: 发送请求日志
  * @Date: 2019-12-16 16:49:15
- * @LastEditTime: 2019-12-16 18:03:16
+ * @LastEditTime: 2019-12-17 15:32:00
  */
 class Logger {
   /**
@@ -21,9 +21,7 @@ class Logger {
     this.ua = ua // NOTE: uni:表示builx 编译的uni-app小程序 wx: 表示直接用微信小程序编写的小程序 web: 表示web应用（包含web和H5）
     this.accessId = accessId // NOTE: access id
     this.accessKey = accessKey // NOTE: access key
-    this.uri = `https://${config.project}.${config.host}/logstores/${
-      config.logstore
-    }/track?APIVersion=0.6.0` // NOTE: 发送给阿里云的后台接口地址
+    this.uri = `https://${config.project}.${config.host}/logstores/${config.logstore}/track?APIVersion=0.6.0` // NOTE: 发送给阿里云的后台接口地址
   }
 
   padLeftZero(str) {
@@ -33,10 +31,7 @@ class Logger {
   formatDate(d, format = 'yyyy-MM-dd hh:mm:ss') {
     let date = new Date(d)
     if (/(y+)/.test(format)) {
-      format = format.replace(
-        RegExp.$1,
-        (date.getFullYear() + '').substr(4 - RegExp.$1.length)
-      )
+      format = format.replace(RegExp.$1, (date.getFullYear() + '').substr(4 - RegExp.$1.length))
     }
     let o = {
       'M+': date.getMonth() + 1,
@@ -48,10 +43,7 @@ class Logger {
     for (let k in o) {
       if (new RegExp(`(${k})`).test(format)) {
         let str = o[k] + ''
-        format = format.replace(
-          RegExp.$1,
-          RegExp.$1.length === 1 ? str : this.padLeftZero(str)
-        )
+        format = format.replace(RegExp.$1, RegExp.$1.length === 1 ? str : this.padLeftZero(str))
       }
     }
     return format
@@ -71,9 +63,7 @@ class Logger {
             success: res => {
               info = Object.assign(info, {
                 os: res.platform,
-                browser: `${res.brand}/${res.model}/${res.system}/${
-                  res.SDKVersion
-                }/${res.version}`
+                browser: `${res.brand}/${res.model}/${res.system}/${res.SDKVersion}/${res.version}`
               })
             }
           })
@@ -87,9 +77,7 @@ class Logger {
             success: res => {
               info = Object.assign(info, {
                 os: res.platform,
-                browser: `${res.brand}/${res.model}/${res.system}/${
-                  res.SDKVersion
-                }/${res.version}`
+                browser: `${res.brand}/${res.model}/${res.system}/${res.SDKVersion}/${res.version}`
               })
             }
           })
@@ -170,15 +158,7 @@ class Logger {
    * @param {string} responseData 请求失败后返回的参数
    * @param {string} stack 错误日志堆栈
    */
-  logger(
-    logType = 'request',
-    requestUrl,
-    params,
-    requestTime,
-    url,
-    responseData,
-    stack
-  ) {
+  logger(logType = 'request', requestUrl, params, requestTime, url, responseData, stack) {
     let userInfo = this.fetchUserInfo()
     let uaInfo = this.fetchNavigation()
     let urlUri = this.uri
@@ -262,20 +242,13 @@ class Logger {
           xhr.setRequestHeader('accessKey', this.accessKey)
           xhr.send(null)
         } catch (ex) {
-          if (
-            window &&
-            window.console &&
-            typeof window.console.log === 'function'
-          ) {
-            console.log(
-              'Failed to log to log service because of this exception:\n' + ex
-            )
+          if (window && window.console && typeof window.console.log === 'function') {
+            console.log('Failed to log to log service because of this exception:\n' + ex)
             console.log('Failed log data:', url)
           }
         }
         break
       default:
-        let xhr = null
         if (window.ActiveXObject) {
           // eslint-disable-next-line
           xhr = new ActiveXObject('Microsoft.XMLHTTP')
@@ -289,14 +262,8 @@ class Logger {
           xhr.setRequestHeader('accessKey', this.accessKey)
           xhr.send(null)
         } catch (ex) {
-          if (
-            window &&
-            window.console &&
-            typeof window.console.log === 'function'
-          ) {
-            console.log(
-              'Failed to log to log service because of this exception:\n' + ex
-            )
+          if (window && window.console && typeof window.console.log === 'function') {
+            console.log('Failed to log to log service because of this exception:\n' + ex)
             console.log('Failed log data:', url)
           }
         }

@@ -1,11 +1,56 @@
 {
   "name": "movee-log",
   "version": "1.0.0",
-  "description": "> 前端日志记录",
+  "description": "利用阿里云web-track记录前端日志，并支持微信小程序和web应用",
   "main": "index.js",
   "scripts": {
+    "eslint": "eslint --fix --ext .js src",
+    "build": "webpack --config webpack.config.js",
+    "changelog": "conventional-changelog -p angular -i CHANGELOG.md -s -r 0 && git add CHANGELOG.md"
   },
+  "repository": {
+    "url": "https://github.com/HongYangHT/movee-log.git"
+  },
+  "homepage": "https://github.com/HongYangHT/movee-log#readme",
   "keywords": [],
   "author": "samhong <m118969136460@163.com> (https://github.com/HongYangHT)",
-  "license": "MIT"
+  "license": "MIT",
+  "devDependencies": {
+    "@babel/core": "^7.7.5",
+    "@babel/plugin-transform-runtime": "^7.7.6",
+    "@babel/preset-env": "^7.7.6",
+    "babel-loader": "^8.0.6",
+    "eslint": "^6.7.2",
+    "eslint-config-prettier": "^6.7.0",
+    "eslint-loader": "^3.0.3",
+    "eslint-plugin-prettier": "^3.1.2",
+    "husky": "^3.1.0",
+    "lint-staged": "^9.5.0",
+    "prettier": "^1.19.1",
+    "webpack": "^4.41.3",
+    "webpack-cli": "^3.3.10"
+  },
+  "dependencies": {
+    "@babel/polyfill": "^7.7.0",
+    "@babel/runtime": "^7.7.6",
+    "@babel/runtime-corejs2": "^7.7.6",
+    "core-js": "^2.6.11"
+  },
+  "config": {
+    "commitizen": {
+      "path": "./node_modules/cz-conventional-changelog"
+    }
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "lint-staged"
+    }
+  },
+  "lint-staged": {
+    "src/**/*.{js}": [
+      "npm run eslint",
+      "npm run changelog",
+      "git add"
+    ]
+  }
 }
