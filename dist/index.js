@@ -3,7 +3,7 @@
  * movee-log
  * 利用阿里云web-track记录前端日志，并支持微信小程序和web应用
  * 
- * @version v1.0.7
+ * @version v1.0.8
  * @homepage https://github.com/HongYangHT/movee-log#readme
  * @repository https://github.com/HongYangHT/movee-log.git
  * 
