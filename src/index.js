@@ -3,7 +3,7 @@
  * @LastEditors: sam.hongyang
  * @Description: 发送请求日志
  * @Date: 2019-12-16 16:49:15
- * @LastEditTime: 2019-12-17 15:32:00
+ * @LastEditTime: 2019-12-17 16:06:12
  */
 class Logger {
   /**
@@ -189,9 +189,15 @@ class Logger {
     this.request(urlUri, info)
   }
 
+  /**
+   * 发送请求的函数
+   * @param {string} url 请求的url
+   * @param {object} params 请求的参数
+   */
   request(url, params) {
     let urlUri = url
     let keys = Object.keys(params)
+    let xhr = null
     keys.forEach(key => {
       if (key && params[key]) {
         urlUri += `&${key}=${encodeURIComponent(params[key])}`
@@ -228,7 +234,6 @@ class Logger {
         }
         break
       case 'web':
-        let xhr = null
         if (window.ActiveXObject) {
           // eslint-disable-next-line
           xhr = new ActiveXObject('Microsoft.XMLHTTP')
