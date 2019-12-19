@@ -1,3 +1,12 @@
+## [1.0.9](https://github.com/HongYangHT/movee-log/compare/1.0.0...1.0.9) (2019-12-19)
+
+
+### Features
+
+* 修改版本号 ([3b2b7ae](https://github.com/HongYangHT/movee-log/commit/3b2b7aefddfbb482a81189e7da141e9331c704a2))
+
+
+
 ## [1.0.8](https://github.com/HongYangHT/movee-log/compare/1.0.0...1.0.8) (2019-12-17)
 
 
