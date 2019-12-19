@@ -1,9 +1,9 @@
 /*
  * @Author: sam.hongyang
- * @LastEditors: sam.hongyang
+ * @LastEditors  : sam.hongyang
  * @Description: 发送请求日志
  * @Date: 2019-12-16 16:49:15
- * @LastEditTime: 2019-12-17 18:17:43
+ * @LastEditTime : 2019-12-19 10:00:37
  */
 class Logger {
   /**
@@ -192,7 +192,7 @@ class Logger {
     let urlUri = this.uri
     let info = Object.assign(userInfo, uaInfo, {
       logType,
-      happenTime: formatDate(new Date(), 'yyyy-MM-dd hh:mm:ss'),
+      happenTime: this.formatDate(new Date(), 'yyyy-MM-dd hh:mm:ss'),
       url,
       stack: JSON.stringify(stack),
       sourceUrl
