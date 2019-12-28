@@ -3,7 +3,7 @@
  * @LastEditors  : sam.hongyang
  * @Description: 发送请求日志
  * @Date: 2019-12-16 16:49:15
- * @LastEditTime : 2019-12-19 10:00:37
+ * @LastEditTime : 2019-12-28 14:29:17
  */
 class Logger {
   /**
@@ -13,7 +13,17 @@ class Logger {
    * @param {string} logstore 项目日志存存的位置
    * @param {string} from 来源的项目
    */
-  constructor(project, host, logstore, accessId, accessKey, from, ua = 'web', openLog = true) {
+  constructor(
+    project,
+    host,
+    logstore,
+    accessId,
+    accessKey,
+    from,
+    ua = 'web',
+    projectEnv = 'dev',
+    openLog = true
+  ) {
     this.project = project
     this.host = host
     this.logstore = logstore
@@ -22,6 +32,7 @@ class Logger {
     this.accessId = accessId // NOTE: access id
     this.accessKey = accessKey // NOTE: access key
     this.uri = `https://${project}.${host}/logstores/${logstore}/track?APIVersion=0.6.0` // NOTE: 发送给阿里云的后台接口地址
+    this.projectEnv = projectEnv
     this.openLog = openLog
   }
 
@@ -181,6 +192,7 @@ class Logger {
       requestType,
       requestTime,
       responseData: JSON.stringify(responseData),
+      projectEnv: this.projectEnv,
       stack: JSON.stringify(stack)
     })
     this.request(urlUri, info)
@@ -194,6 +206,7 @@ class Logger {
       logType,
       happenTime: this.formatDate(new Date(), 'yyyy-MM-dd hh:mm:ss'),
       url,
+      projectEnv: this.projectEnv,
       stack: JSON.stringify(stack),
       sourceUrl
     })

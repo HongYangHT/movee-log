@@ -1,3 +1,7 @@
+## [1.0.10](https://github.com/HongYangHT/movee-log/compare/1.0.1...1.0.10) (2019-12-28)
+
+
+
 ## [1.0.9](https://github.com/HongYangHT/movee-log/compare/1.0.0...1.0.9) (2019-12-19)
 
 
