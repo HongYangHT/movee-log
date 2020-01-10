@@ -18,10 +18,11 @@ import Logger from 'movee-log';
    * @param {string} accessKey 阿里云的accessKey 参数会添加在请求头中
    * @param {string} from 来源的项目
    * @param {string} ua 表示项目的类型： uni:表示builx 编译的uni-app小程序 wx: 表示直接用微信小程序编写的小程序 web: 表示web应用（包含web和H5）
+   * @param {string} projectEnv 项目当前的环境 dev fat uat pro
    * @param {boolean} openLog 是否直接开启发送日志，请在开发环境设置为false，不发送日志，生产环境请开启
   */
  // Logger(project, host, logstore, accessId, accessKey, from, ua = 'web', openLog = true)
- let logger = new Logger(project, host, logstore, accessId, accessKey, from, ua, openLog);
+ let logger = new Logger(project, host, logstore, accessId, accessKey, from, ua, projectEnv, openLog);
 
  // logger(logType = 'request', requestUrl, params, requestTime, url, responseData, stack)
  // 调用logger请求
